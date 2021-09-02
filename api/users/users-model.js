@@ -16,6 +16,11 @@ const get = () => {
     return Promise.resolve(users)
 }
 
+const getById = id => {
+    const user = users.find(d => d.id === id)
+    return Promise.resolve(user)
+}
+
 const insert = ({ username, password }) => {
     const newUser = { id: shortid.generate(), username, password }
     users.push(newUser)
@@ -23,6 +28,7 @@ const insert = ({ username, password }) => {
 }
 
 module.exports = {
-    get, 
+    get,
+    getById, 
     insert
 }
